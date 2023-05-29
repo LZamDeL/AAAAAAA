@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet"href="Eliminar.css"type="text/css">
+    <title>Tabla con Buscador y Edición</title>
+</head>
+<body>
+    <input type="text" id="search-input" placeholder="Buscar...">
+    
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Datos</th>
+                <th>Número</th>
+                <th>Estante</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-image">
+                    <div class="zoom-image">
+                        <img src="ruta_a_la_imagen1.jpg" alt="Foto 1">
+                    </div>
+                </td>
+                <td><span class="editable-field">Nombre 1</span></td>
+                <td><span class="editable-field">Datos 1</span></td>
+                <td><span class="editable-field">Número 1</span></td>
+                <td><span class="editable-field">Estante 1</span></td>
+                <td>
+                    <button class="edit-btn">Editar</button>
+                    <button class="save-btn">Guardar</button>
+                    <button class="delete-btn">Eliminar</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-image">
+                    <div class="zoom-image">
+                        <img src="ruta_a_la_imagen2.jpg" alt="Foto 2">
+                    </div>
+                </td>
+                <td><span class="editable-field">Nombre 2</span></td>
+                <td><span class="editable-field">Datos 2</span></td>
+                <td><span class="editable-field">Número 2</span></td>
+                <td><span class="editable-field">Estante 2</span></td>
+                <td>
+                    <button class="edit-btn">Editar</button>
+                    <button class="save-btn">Guardar</button>
+                    <button class="delete-btn">Eliminar</button>
+                </td>
+            </tr>
+            <!-- Agrega más filas según sea necesario -->
+        </tbody>
+    </table>
+    
+    <script>
+        // Obtiene la referencia al input de búsqueda
+        var searchInput = document.getElementById("search-input");
+        
+        // Agrega un evento de escucha para filtrar la tabla cuando se escriba en el input de búsqueda
+        searchInput.addEventListener("keyup", function(event) {
+            var searchText = event.target.value.toLowerCase();
+            var rows = document.querySelectorAll("#data-table tbody tr");
+            
+            rows.forEach(function(row) {
+                var name = row.querySelector("td:nth-child(2) span").textContent.toLowerCase();
+                
+                if (name.includes(searchText)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+        
+        // Agrega eventos de escucha para los botones de editar, guardar y eliminar
+        var editButtons = document.getElementsByClassName("edit-btn");
+        var saveButtons = document.getElementsByClassName("save-btn");
+        var deleteButtons = document.getElementsByClassName("delete-btn");
+        
+        for (var i = 0; i < editButtons.length; i++) {
+            editButtons[i].addEventListener("click", function(event) {
+                var row = event.target.parentNode.parentNode;
+                var fields = row.getElementsByClassName("editable-field");
+                
+                // Habilitar los campos de la fila para la edición
+                for (var j = 0; j < fields.length; j++) {
+                    fields[j].contentEditable = true;
+                    fields[j].style.backgroundColor = "#ffffff";
+                }
+                
+                // Mostrar el botón "Guardar" y ocultar el botón "Editar"
+                row.classList.add("edit-mode");
+            });
+        }
+        
+        for (var i = 0; i < saveButtons.length; i++) {
+            saveButtons[i].addEventListener("click", function(event) {
+                var row = event.target.parentNode.parentNode;
+                var fields = row.getElementsByClassName("editable-field");
+                
+                // Deshabilitar los campos de la fila para la edición
+                for (var j = 0; j < fields.length; j++) {
+                    fields[j].contentEditable = false;
+                    fields[j].style.backgroundColor = "";
+                }
+                
+                // Ocultar el botón "Guardar" y mostrar el botón "Editar"
+                row.classList.remove("edit-mode");
+                
+                // Lógica para guardar los cambios de la fila
+                console.log("Guardar cambios de la fila: " + row.querySelector("td:nth-child(2) span").textContent);
+            });
+        }
+        
+        for (var i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener("click", function(event) {
+                var row = event.target.parentNode.parentNode;
+                
+                // Eliminar la fila de la tabla
+                row.parentNode.removeChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

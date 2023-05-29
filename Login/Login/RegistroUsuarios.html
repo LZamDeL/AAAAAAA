@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="RegistroUsuarios.css" type="text/css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEFDEF</title>
+    <script>
+        function regresarPagina() {
+          window.history.back();
+        }
+      </script>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="header">Registro de usuarios</div>
+        <form>
+            <label>Nombre: </label>
+            <input type ="text" id= "Nombre" name="Nombre" placeholder="Introducir nombre "/>
+            <br>
+            <label>Apellido: </label>
+            <input type="text" id="Apellido" name="Apellido" placeholder="Introducir apellido"/>
+            <br>
+            <label>Correo: </label>
+            <input type="email" id="Correo" name="Correo"   placeholder="Ej. correo@gmail.com"/>
+            <br>
+            <label>Numero Telefonico: </label>
+            <input type ="text" id="Telefono" name="telefono" placeholder="Introducir numero a 10 digitos"/>
+            <br>
+            <label>Usuario: </label>
+            <input type="text" id="Usuario" name="usuario" placeholder="Ingrese un usuario"/>
+            <br>
+            <label>Contraseña: </label>
+            <input type="text" id="Contraseña" name="contraseña" placeholder="Ingrese una contraseña"/>
+            <br>
+            <input type="submit" value="Aceptar">
+           
+            <!-- 
+                <button type="button" class="cancel-button">Cancelar</button>  -->
+                <button type="button" onclick="regresarPagina()">Cancelar</button>
+            
+
+            <label></label>
+        </form>
+        
+            
+    </div>
+    
+</body>
+</html>

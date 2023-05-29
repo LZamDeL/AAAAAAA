@@ -1,0 +1,68 @@
+.menu {
+    background-color: #333;
+    
+    
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    position: fixed;/*posicion fija*/
+    left:0;
+    top:0;
+    width: 100%;
+    background-color: #333;
+   
+  }
+  
+  .menu li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .menu li a:hover {
+    background-color: #555;
+  }
+
+
+
+.carousel {
+  width: 100%;
+  margin-top: 50px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  width: fit-content;
+  animation: scroll 100s infinite;
+}
+
+.carousel-item {
+  width: 800px;
+  height: 600px;
+  margin-right: 10px;
+  background-color: #ccc;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+  
+  

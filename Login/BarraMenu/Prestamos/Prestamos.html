@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Prestamos.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Tabla de registros</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="back-button">
+            <a href="">Regresar</a>
+        </div>
+        <div class="search-container">
+            <form>
+                <input type="text" placeholder="Buscar..." name="search">
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Fecha de entrada</th>
+                    <th>Fecha de salida</th>
+                </tr>
+                <?php
+                // Aquí puedes incluir el código PHP para obtener los datos de la base de datos y generar las filas de la tabla dinámicamente
+                // Por ejemplo:
+                
+                // Conexión a la base de datos
+                $servername = "nombre_del_servidor";
+                $username = "nombre_de_usuario";
+                $password = "contraseña";
+                $dbname = "nombre_de_la_base_de_datos";
+                
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                if ($conn->connect_error) {
+                    die("Error de conexión: " . $conn->connect_error);
+                }
+                
+                // Consulta a la base de datos para obtener los registros
+                $sql = "SELECT foto, nombre, fecha_entrada, fecha_salida FROM registros";
+                $result = $conn->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    // Generar filas de la tabla con los datos obtenidos
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td><img src='" . $row['foto'] . "' alt='Foto'></td>";
+                        echo "<td>" . $row['nombre'] . "</td>";
+                        echo "<td>" . $row['fecha_entrada'] . "</td>";
+                        echo "<td>" . $row['fecha_salida'] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No se encontraron registros.</td></tr>";
+                }
+                
+                $conn->close();
+                ?>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

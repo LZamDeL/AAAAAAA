@@ -1,0 +1,65 @@
+body{
+    background-image:url('books-library-bokeh-depth-of-field-wallpaper-preview.jpg');
+background-color: #eeeeeeb4;
+}
+form{
+    max-width: 400px;
+      margin: 0 auto;
+      background-color: #e2e2e2;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header{
+  margin-left: 30px;
+  position: 10px;
+padding: 10px;
+}
+input[type=text],[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+.cancel-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+input:hover {
+    background-color: rgb(190, 200, 201);
+    color: black;
+    border: 1px solid black;
+  }
+.box{
+    
+    position: 400px;
+    width: 500px;
+    
+    padding: 12px,20px;
+    
+    background-color:rgba(149, 155, 146, 0.303);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc2d;
+    border-radius: 15px;
+    border-top:solid 0px;
+
+
+    margin-top: 100px;
+    margin-left: 500px;
+    
+    padding: 10px;
+    
+    position:static;
+    
+}
+
+
+
